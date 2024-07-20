@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "0x00-MySQL_Advanced",
+            "database": "hbtn_0d_tvshows",
+            "username": "hullaah",
+            "password": ""
+        }
+    ]
+}
