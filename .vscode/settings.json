@@ -8,9 +8,9 @@
             "previewLimit": 50,
             "server": "localhost",
             "port": 3306,
-            "driver": "MariaDB",
+            "driver": "MySQL",
             "name": "0x00-MySQL_Advanced",
-            "database": "hbtn_0d_tvshows",
+            "database": "holberton",
             "username": "hullaah",
             "password": ""
         }

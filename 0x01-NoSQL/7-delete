@@ -1,0 +1,9 @@
+// Deletes all document with name="Holberton school" in the collection school
+db.runCommand({
+    delete: "school",
+    deletes: [
+        {
+            q: { name: "Holberton school" }, limit: 0,
+        }
+    ]
+})

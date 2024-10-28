@@ -1,0 +1,10 @@
+// Adds a new attribute to a document in the collection school
+db.runCommand({
+    update: "school",
+    updates: [
+        {
+            q: { name: "Holberton school" },
+            u: { $set: {address: "972 Mission street"} }
+        }
+    ]
+})
