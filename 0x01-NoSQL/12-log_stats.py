@@ -18,10 +18,12 @@ def main():
     stats = [*get_stats(nginx_logs)]
 
     print("{} logs".format(total_logs))
-    print("Methods: ")
+    print("Methods:")
     for method in METHODS:
         print("\tmethod {}: {}".format(method, total_request(method, stats)))
-    print("{} status check".format(status_check(nginx_logs).get("checks")))
+    checks = [*status_check(nginx_logs)]
+    checks = 0 if len(checks) == 0 else checks[0]["checks"]
+    print("{} status check".format(checks))
 
 
 def total_request(method, stats):
@@ -67,7 +69,7 @@ def get_stats(nginx_logs):
 def status_check(nginx_logs):
     """gets the total number of status checks request from the log
     """
-    return [*nginx_logs.aggregate([
+    return nginx_logs.aggregate([
         {
             "$match": {
                 "method": "GET",
@@ -80,7 +82,7 @@ def status_check(nginx_logs):
                 "checks": {"$sum": 1}
             }
         }
-    ])][0]
+    ])
 
 
 if __name__ == "__main__":
