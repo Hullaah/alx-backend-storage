@@ -1,2 +1,2 @@
 // creates or uses the databse
-use('my_db')
+use my_db
