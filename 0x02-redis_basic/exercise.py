@@ -7,6 +7,15 @@ from typing import Union, Callable, Optional
 from uuid import uuid4
 
 
+def replay(method: Callable) -> None:
+    """Display the history of calls of a particular function
+
+    Args:
+        method: function to replay useage history about
+    """
+    times_called = ""
+
+
 def call_history(method: Callable) -> Callable:
     """Stores the call history (history of inputs and outputs)
     of calls to a particular function
@@ -21,7 +30,7 @@ def call_history(method: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         self, *args = args
         self._redis.rpush(f"{method.__qualname__}:inputs", str(args))
-        result = method(*args, **kwargs)
+        result = method(self, *args, **kwargs)
         self._redis.rpush(f"{method.__qualname__}:outputs", result)
         return result
     return wrapper
