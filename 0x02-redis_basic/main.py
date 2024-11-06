@@ -2,8 +2,6 @@
 """
 Main file
 """
-import redis
-
 from exercise import Cache
 
 cache = Cache()
